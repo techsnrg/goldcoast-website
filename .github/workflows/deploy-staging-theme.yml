@@ -25,11 +25,12 @@ jobs:
           PORT: ${{ secrets.HOSTINGER_SFTP_PORT }}
           TARGET_PATH: ${{ secrets.STAGING_THEME_PATH }}
         run: |
+          CLEAN_TARGET_PATH="${TARGET_PATH#/}"
           sshpass -p "$PASSWORD" ssh \
             -p "$PORT" \
             -o StrictHostKeyChecking=no \
             "$USERNAME@$HOST" \
-            "mkdir -p '$TARGET_PATH'"
+            "mkdir -p '$CLEAN_TARGET_PATH'"
 
       - name: Copy child theme to staging
         env:
@@ -39,8 +40,9 @@ jobs:
           PORT: ${{ secrets.HOSTINGER_SFTP_PORT }}
           TARGET_PATH: ${{ secrets.STAGING_THEME_PATH }}
         run: |
+          CLEAN_TARGET_PATH="${TARGET_PATH#/}"
           sshpass -p "$PASSWORD" scp \
             -P "$PORT" \
             -o StrictHostKeyChecking=no \
             -r goldcoast-astra-child/* \
-            "$USERNAME@$HOST:$TARGET_PATH/"
+            "$USERNAME@$HOST:$CLEAN_TARGET_PATH/"
