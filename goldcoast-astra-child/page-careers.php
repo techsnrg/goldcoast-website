@@ -10,7 +10,7 @@ get_header();
   <section class="gce-careers-hero">
     <div class="gce-container gce-hero-grid">
       <div class="gce-hero-copy">
-        <span class="gce-eyebrow">Careers at Gold Coast Electricals</span>
+        <span class="gce-eyebrow">Careers at Gold Coast Electricals - Staging Test</span>
         <h1>Build Your Career With Gold Coast Electricals</h1>
         <p>
           Join a team shaping dependable electrical solutions for modern India.
