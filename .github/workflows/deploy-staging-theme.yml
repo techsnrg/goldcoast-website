@@ -14,12 +14,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Sync child theme to staging via SFTP
-        uses: Dylan700/sftp-upload-action@latest
-        with:
-          server: ${{ secrets.HOSTINGER_SFTP_HOST }}
-          username: ${{ secrets.HOSTINGER_SFTP_USERNAME }}
-          password: ${{ secrets.HOSTINGER_SFTP_PASSWORD }}
-          port: ${{ secrets.HOSTINGER_SFTP_PORT }}
-          uploads: |
-            ./goldcoast-astra-child/ => ${{ secrets.STAGING_THEME_PATH }}/
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Ensure remote theme directory exists
+        env:
+          HOST: ${{ secrets.HOSTINGER_SFTP_HOST }}
+          USERNAME: ${{ secrets.HOSTINGER_SFTP_USERNAME }}
+          PASSWORD: ${{ secrets.HOSTINGER_SFTP_PASSWORD }}
+          PORT: ${{ secrets.HOSTINGER_SFTP_PORT }}
+          TARGET_PATH: ${{ secrets.STAGING_THEME_PATH }}
+        run: |
+          sshpass -p "$PASSWORD" ssh \
+            -p "$PORT" \
+            -o StrictHostKeyChecking=no \
+            "$USERNAME@$HOST" \
+            "mkdir -p '$TARGET_PATH'"
+
+      - name: Copy child theme to staging
+        env:
+          HOST: ${{ secrets.HOSTINGER_SFTP_HOST }}
+          USERNAME: ${{ secrets.HOSTINGER_SFTP_USERNAME }}
+          PASSWORD: ${{ secrets.HOSTINGER_SFTP_PASSWORD }}
+          PORT: ${{ secrets.HOSTINGER_SFTP_PORT }}
+          TARGET_PATH: ${{ secrets.STAGING_THEME_PATH }}
+        run: |
+          sshpass -p "$PASSWORD" scp \
+            -P "$PORT" \
+            -o StrictHostKeyChecking=no \
+            -r goldcoast-astra-child/* \
+            "$USERNAME@$HOST:$TARGET_PATH/"
