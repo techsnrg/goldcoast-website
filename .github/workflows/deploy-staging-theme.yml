@@ -32,7 +32,10 @@ jobs:
             "$USERNAME@$HOST" \
             "mkdir -p '$CLEAN_TARGET_PATH'"
 
-      - name: Copy child theme to staging
+      - name: Package child theme
+        run: tar -czf astra-child.tar.gz -C astra-child .
+
+      - name: Upload packaged child theme to staging
         env:
           HOST: ${{ secrets.HOSTINGER_SFTP_HOST }}
           USERNAME: ${{ secrets.HOSTINGER_SFTP_USERNAME }}
@@ -44,5 +47,20 @@ jobs:
           sshpass -p "$PASSWORD" scp \
             -P "$PORT" \
             -o StrictHostKeyChecking=no \
-            -r astra-child/* \
-            "$USERNAME@$HOST:$CLEAN_TARGET_PATH/"
+            astra-child.tar.gz \
+            "$USERNAME@$HOST:$CLEAN_TARGET_PATH/__codex_theme.tar.gz"
+
+      - name: Extract packaged child theme on staging
+        env:
+          HOST: ${{ secrets.HOSTINGER_SFTP_HOST }}
+          USERNAME: ${{ secrets.HOSTINGER_SFTP_USERNAME }}
+          PASSWORD: ${{ secrets.HOSTINGER_SFTP_PASSWORD }}
+          PORT: ${{ secrets.HOSTINGER_SFTP_PORT }}
+          TARGET_PATH: ${{ secrets.STAGING_THEME_PATH }}
+        run: |
+          CLEAN_TARGET_PATH="${TARGET_PATH#/}"
+          sshpass -p "$PASSWORD" ssh \
+            -p "$PORT" \
+            -o StrictHostKeyChecking=no \
+            "$USERNAME@$HOST" \
+            "cd '$CLEAN_TARGET_PATH' && tar -xzf __codex_theme.tar.gz && rm -f __codex_theme.tar.gz"
