@@ -1,0 +1,331 @@
+:root {
+  --gce-bg: #f6f2ea;
+  --gce-surface: #ffffff;
+  --gce-ink: #1f2b44;
+  --gce-muted: #5f5a52;
+  --gce-accent: #c6912a;
+  --gce-accent-dark: #9c721e;
+  --gce-dark: #191919;
+  --gce-dark-soft: #2a2a2a;
+  --gce-border: rgba(26, 26, 26, 0.08);
+  --gce-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  --gce-radius: 24px;
+  --gce-max: 1200px;
+}
+
+.gce-careers-page {
+  background: var(--gce-bg);
+  color: var(--gce-ink);
+}
+
+.gce-container {
+  width: min(var(--gce-max), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.gce-section {
+  padding: 88px 0;
+}
+
+.gce-section-dark {
+  background: linear-gradient(180deg, var(--gce-dark) 0%, var(--gce-dark-soft) 100%);
+  color: #fff;
+}
+
+.gce-section-accent {
+  background: linear-gradient(135deg, #efe4cc 0%, #f8f3e8 100%);
+}
+
+.gce-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--gce-accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.gce-section-heading {
+  max-width: 720px;
+  margin-bottom: 42px;
+}
+
+.gce-section-heading h2 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.gce-section-heading p {
+  margin: 0;
+  color: inherit;
+  opacity: 0.82;
+  font-size: 1.05rem;
+}
+
+.gce-careers-hero {
+  padding: 96px 0 72px;
+  background:
+    radial-gradient(circle at top right, rgba(198, 145, 42, 0.18), transparent 28%),
+    linear-gradient(180deg, #fbf8f1 0%, #f2ecdf 100%);
+}
+
+.gce-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.gce-hero-copy h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  line-height: 0.95;
+}
+
+.gce-hero-copy p {
+  max-width: 640px;
+  font-size: 1.1rem;
+  color: var(--gce-muted);
+}
+
+.gce-hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 28px 0 34px;
+}
+
+.gce-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.gce-btn:hover {
+  transform: translateY(-2px);
+}
+
+.gce-btn-primary {
+  background: var(--gce-accent);
+  color: #fff;
+}
+
+.gce-btn-primary:hover {
+  background: var(--gce-accent-dark);
+  color: #fff;
+}
+
+.gce-btn-secondary {
+  border: 1px solid rgba(26, 26, 26, 0.15);
+  background: transparent;
+  color: var(--gce-ink);
+}
+
+.gce-section-dark .gce-btn-secondary {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.gce-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.gce-stat-card,
+.gce-info-card,
+.gce-value-card,
+.gce-job-card,
+.gce-pillar {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--gce-border);
+  border-radius: var(--gce-radius);
+  box-shadow: var(--gce-shadow);
+}
+
+.gce-stat-card {
+  padding: 22px;
+}
+
+.gce-stat-card strong {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.gce-stat-card span {
+  color: var(--gce-muted);
+}
+
+.gce-hero-visual {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gce-hero-panel {
+  width: 100%;
+  max-width: 420px;
+  padding: 34px;
+  border-radius: 32px;
+  background: linear-gradient(160deg, #1f1f1f 0%, #2f2a24 100%);
+  color: #fff;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.2);
+}
+
+.gce-panel-badge {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(198, 145, 42, 0.2);
+  color: #f5d28f;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.gce-hero-panel h3,
+.gce-hero-panel p,
+.gce-section-dark .gce-section-heading h2,
+.gce-section-dark .gce-section-heading p,
+.gce-section-dark .gce-pillar h3,
+.gce-section-dark .gce-pillar p {
+  color: #fff;
+}
+
+.gce-card-grid,
+.gce-values-grid,
+.gce-benefits-grid,
+.gce-pillars {
+  display: grid;
+  gap: 22px;
+}
+
+.gce-card-grid,
+.gce-values-grid,
+.gce-pillars {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gce-info-card,
+.gce-value-card,
+.gce-pillar {
+  padding: 28px;
+}
+
+.gce-section-dark .gce-pillar {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.gce-benefits-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gce-benefit {
+  padding: 22px 24px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(26, 26, 26, 0.06);
+  font-weight: 700;
+}
+
+.gce-jobs-list {
+  display: grid;
+  gap: 18px;
+}
+
+.gce-job-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 26px;
+}
+
+.gce-job-card p {
+  margin: 6px 0 0;
+  color: var(--gce-muted);
+}
+
+.gce-apply-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: center;
+}
+
+.gce-apply-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.reveal-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js-enabled .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.js-enabled .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 921px) {
+  .gce-hero-grid,
+  .gce-card-grid,
+  .gce-values-grid,
+  .gce-pillars,
+  .gce-benefits-grid,
+  .gce-apply-box {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .gce-hero-copy h1 {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+
+  .gce-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .gce-job-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 544px) {
+  .gce-section,
+  .gce-careers-hero {
+    padding: 72px 0;
+  }
+
+  .gce-container {
+    width: min(var(--gce-max), calc(100% - 24px));
+  }
+
+  .gce-hero-actions,
+  .gce-apply-actions {
+    flex-direction: column;
+  }
+
+  .gce-btn {
+    width: 100%;
+  }
+}
