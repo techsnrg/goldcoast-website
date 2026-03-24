@@ -44,5 +44,5 @@ jobs:
           sshpass -p "$PASSWORD" scp \
             -P "$PORT" \
             -o StrictHostKeyChecking=no \
-            -r goldcoast-astra-child/* \
+            -r astra-child/* \
             "$USERNAME@$HOST:$CLEAN_TARGET_PATH/"

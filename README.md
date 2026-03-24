@@ -4,7 +4,7 @@ This repository contains the custom WordPress child theme for Gold Coast Electri
 
 ## Structure
 
-- `goldcoast-astra-child/` - Astra child theme source
+- `astra-child/` - Astra child theme source
 
 ## Current Scope
 

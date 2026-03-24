@@ -6,11 +6,11 @@ This repository is configured to auto-deploy the child theme to the staging Word
 
 Only this folder is deployed:
 
-- `goldcoast-astra-child/`
+- `astra-child/`
 
 It should be uploaded to the staging site's theme directory:
 
-- `public_html/wp-content/themes/goldcoast-astra-child`
+- `staging/wp-content/themes/astra-child`
 
 ## Hostinger Details You Need
 
@@ -44,7 +44,7 @@ In GitHub:
 
 Recommended value for `STAGING_THEME_PATH`:
 
-- `/public_html/wp-content/themes/goldcoast-astra-child`
+- `/staging/wp-content/themes/astra-child`
 
 ## First-Time WordPress Step
 
